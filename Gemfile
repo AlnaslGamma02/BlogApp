@@ -15,7 +15,9 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 
 gem 'execjs'
-gem 'therubyracer'
+# gem 'therubyracer'
+# therubyracer より mini racer を推奨との事
+gem 'mini_racer'
 gem 'bootstrap', '~> 4.2.1'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
