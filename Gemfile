@@ -14,9 +14,13 @@ gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
+# Devise
+gem 'devise'
+gem 'devise-i18n'
+
 gem 'execjs'
 # gem 'therubyracer'
-# therubyracer より mini racer を推奨との事
+# therubyracer よりも mini racer を推奨との事
 gem 'mini_racer'
 gem 'bootstrap', '~> 4.2.1'
 gem 'jquery-rails'
@@ -60,6 +64,8 @@ group :development do
   # background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :test do
