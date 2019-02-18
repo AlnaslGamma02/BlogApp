@@ -1,8 +1,40 @@
-<div class="jumbotron jumbotron-fluid">
-  <h1 class="display-3">Blog App</h1>
-  <p class="lead">
-    ここは、ブログアプリのホームページです。
-  </p>
-  <%= link_to "サインアップ", new_user_registration_path,
-  class: "btn btn-lg btn-primary" %>
+<% if user_signed_in? %>
+  <div class="jumbotron jumbotron-fluid border border-danger">
+    <h1 class="display-3">Blog App</h1>
+    <p class="lead">
+      ブログアプリへようこそ！！
+    </p>
+  </div>
+<% else %>
+  <div class="jumbotron jumbotron-fluid border border-danger">
+    <h1 class="display-3">Blog App</h1>
+    <p class="lead">
+      ここは、ブログアプリのホームページです。
+    </p>
+    <%= link_to "サインアップ", new_user_registration_path,
+    class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 border border-primary">
+      col-8
+    </div>
+    <div class="col-sm-4 border border-success">
+      <div class="d-flex flex-column">
+        <nav class="navbar navbar-light bg-white border border-success">
+          <form class="form-inline">
+            <input class="form-controll mr-sm-2" type="search"
+            placeholder="検索キーワード" aria-label="検索キーワード">
+            <button class="btn btn-outline-success my-2 my-sm-0"
+            type="submit">検索</button>
+          </form>
+        </nav>
+
+        <div>flexアイテム2</div>
+
+        <div>flexアイテム3</div>
+      </div>
+    </div>
+  </div>
 </div>
