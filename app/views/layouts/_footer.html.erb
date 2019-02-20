@@ -2,22 +2,16 @@
   <div class="container text-center">
     <ul class="nav justify-content-center mb-3">
       <li class="nav-item">
-        <a class="nav-link" href="#">リンク1</a>
+        <%= link_to "ホーム", root_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">リンク2</a>
+        <%= link_to "このブログについて", about_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">リンク3</a>
+        <%= link_to "記事の一覧", articles_url, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">リンク4</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">リンク5</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">リンク6</a>
+        <%= link_to "ヘルプ", help_path, class: "nav-link" %>
       </li>
     </ul>
   </div>

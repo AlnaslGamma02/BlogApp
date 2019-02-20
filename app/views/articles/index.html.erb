@@ -1,23 +1,35 @@
-<% provide(:title, "Articles") %>
-<h1>記事の一覧</h1>
+<% provide(:title, "記事の一覧") %>
 
-<%= link_to '記事を投稿する', new_article_path, class: "btn btn-lg btn-primary" %>
+<div class="container">
+  <div class="row justify-content-between border border-danger my-2">
+    <h1>記事の一覧</h1>
+    <%= link_to '記事を投稿する', new_article_path, class: "btn btn-lg btn-primary" %>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th></th>
-  </tr>
-
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article), method: :delete,
-                                  data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 border border-primary">
+      <% @articles.each do |article| %>
+        <div class="card bg-light my-2">
+          <div class="card-body">
+            <h4 class="card-title">
+              <%= article.title %>
+            </h4>
+            <%# 記事の本文を文頭から100文字切り出して表示する。 %>
+            <%= simple_format(truncate(article.text, length: 100,
+                                        omission: "..."), calss: "card-text") %>
+            <%= link_to '詳細を見る', article_path(article), class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%# サイドバー ここから %>
+    <div class="col-sm-4 border border-success">
+      <div class="d-flex flex-column">
+        <%= render 'layouts/side_var' %>
+      </div>
+    </div>
+    <%# サイドバー ここまで %>
+  </div>
+</div>

@@ -11,18 +11,18 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "should get help" do
     get help_path
     assert_response :success
-    assert_select "title", "Help | Blog App"
+    assert_select "title", "ヘルプ | Blog App"
   end
 
   test "should get about" do
     get about_path
     assert_response :success
-    assert_select "title", "About | Blog App"
+    assert_select "title", "このブログについて | Blog App"
   end
 
   test "should get articles" do
     get articles_url
     assert_response :success
-    assert_select "title", "Articles | Blog App"
+    assert_select "title", "記事の一覧 | Blog App"
   end
 end

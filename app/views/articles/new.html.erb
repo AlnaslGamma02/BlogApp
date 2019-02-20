@@ -1,5 +1,23 @@
-<h1>New article</h1>
+<% provide(:title, "新規作成") %>
 
-<%= render 'form' %>
+<div class="container">
+  <div class="row border border-danger my-2">
+    <h1>新規作成</h1>
+  </div>
+</div>
 
-<%= link_to 'Back', articles_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 border border-primary">
+      <%= render 'form' %>
+      <%= link_to '記事の一覧へ戻る', articles_path %>
+    </div>
+    <%# サイドバー ここから %>
+    <div class="col-sm-4 border border-success">
+      <div class="d-flex flex-column">
+        <%= render 'layouts/side_var' %>
+      </div>
+    </div>
+    <%# サイドバー ここまで %>
+  </div>
+</div>

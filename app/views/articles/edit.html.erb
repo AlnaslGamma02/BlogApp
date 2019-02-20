@@ -1,5 +1,23 @@
-<h1>Edit article</h1>
+<% provide(:title, "記事の編集") %>
 
-<%= render 'form' %>
+<div class="container">
+  <div class="row border border-danger my-2">
+    <h1>記事の編集</h1>
+  </div>
+</div>
 
-<%= link_to 'Back', articles_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 border border-primary">
+      <%= render 'form' %>
+      <%= link_to 'Back', articles_path %>
+    </div>
+    <%# サイドバー ここから %>
+    <div class="col-sm-4 border border-success">
+      <div class="d-flex flex-column">
+        <%= render 'layouts/side_var' %>
+      </div>
+    </div>
+    <%# サイドバー ここまで %>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
 
+  # 記事の表示以外はログインするようユーザーに要求する。
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   def index

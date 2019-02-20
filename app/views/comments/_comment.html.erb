@@ -1,15 +1,15 @@
 <p>
-  <strong>Commenter:</strong>
+  <strong>コメンター：</strong>
   <%= comment.commenter %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong>コメント本文：</strong>
   <%= comment.body %>
 </p>
 
 <p>
-  <%= link_to 'Destroy Comment', [ comment.article, comment ],
+  <%= link_to 'コメント削除', [ comment.article, comment ],
               method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+              data: { confirm: '本当に削除しますか？' } %>
 </p>
