@@ -8,6 +8,8 @@
   <%= comment.body %>
 </p>
 
+<%# 下記リンクをクリックすると DELETE /articles/:article_id/comments/:id  %>
+<%# というリクエストが CommentsController に送信されます。 %>
 <p>
   <%= link_to 'コメント削除', [ comment.article, comment ],
               method: :delete,

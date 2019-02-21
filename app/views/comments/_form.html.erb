@@ -1,3 +1,7 @@
+<%# CommentsControllerのcreateアクションを呼び出すことでコメントを新規作成 %>
+<%# form_with呼び出しで配列を1つ渡す。これは /articles/1/comments のような %>
+<%# 「ネストしたルーティング」を生成する。 %>
+
 <%= form_with(model: [ @article, @article.comments.build ],
               local: true) do |form| %>
   <p>
