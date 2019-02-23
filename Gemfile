@@ -25,7 +25,7 @@ gem 'execjs'
 # gem 'therubyracer'
 # therubyracer よりも mini racer を推奨との事
 gem 'mini_racer'
-gem 'bootstrap', '~> 4.2.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 
