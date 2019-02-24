@@ -9,4 +9,7 @@ class User < ApplicationRecord
   has_many :comments
   # comment テーブルを経由して1人のユーザーが記事を複数持てる
   has_many :articles, through: :comments
+
+  # バリデーション
+  validates :name, presence: true
 end
