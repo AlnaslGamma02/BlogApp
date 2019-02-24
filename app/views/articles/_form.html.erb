@@ -11,7 +11,8 @@
         <h2>
           <%# pluralize は上手く動かなかった。(i18nの影響?) %>
           <%# <%= pluralize(@article.errors.count, "error") %>
-          この記事は保存されませんでした。：
+          この記事は保存されませんでした。エラー件数は
+          <%= @article.errors.count %> 件です。：
         </h2>
         <ul>
           <% @article.errors.full_messages.each do |msg| %>
