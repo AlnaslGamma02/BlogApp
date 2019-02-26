@@ -20,6 +20,9 @@
           <li class="nav-item">
             <%= link_to "記事の一覧", articles_url, class: "nav-link" %>
           </li>
+          <% if user_signed_in? %>
+            <%= link_to "ユーザの一覧", users_path, class: "nav-link" %>
+          <% end %>
           <li class="nav-item">
             <%= link_to "ヘルプ", help_path, class: "nav-link" %>
           </li>
@@ -27,9 +30,9 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              アカウント
+              <%= current_user.name %>
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenu">
+              <div class="dropdown-menu mt-2" aria-labelledby="navbarDropdownMenu">
                 <%= link_to "プロフィール", user_path(id: current_user.id),
                 class: "dropdown-item" %>
                 <%= link_to "プロフィール変更", edit_user_registration_path,

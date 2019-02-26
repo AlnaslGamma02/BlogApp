@@ -1,0 +1,49 @@
+<% provide(:title, "ユーザの一覧") %>
+
+<div class="container">
+  <div class="row border border-danger my-2">
+    <h1>ユーザの一覧</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 border border-primary">
+      <section>
+        <nav class="border border-primary mt-2 pt-2">
+          <%= will_paginate(@users,
+              :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
+              class: 'pagination justify-content-center')
+          %>
+        </nav>
+      </section>
+      <% @users.each do |user| %>
+        <div class="media border border-primary my-2">
+          <div class="mr-3">
+            <%= gravatar_for user, size: 50 %>
+          </div>
+          <div class="media-body">
+            <span class="align-middle">
+              <%= link_to user.name, user_path(id: user.id) %>
+            </span>
+          </div>
+        </div>
+      <% end %>
+      <section>
+        <nav class="border border-primary pt-2">
+          <%= will_paginate(@users,
+              :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
+              class: 'pagination justify-content-center')
+          %>
+        </nav>
+      </section>
+    </div>
+    <%# サイドバー ここから %>
+    <div class="col-sm-4 border border-success">
+      <div class="d-flex flex-column">
+        <%= render 'layouts/side_var' %>
+      </div>
+    </div>
+    <%# サイドバー ここまで %>
+  </div>
+</div>

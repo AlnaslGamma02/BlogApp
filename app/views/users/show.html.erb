@@ -3,3 +3,12 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1>
+
+<%# カレントユーザーと表示中のユーザーのIDが一致した時のみ表示 %>
+<% if @user.id == current_user.id %>
+  <h2>
+    <%= link_to "プロフィール変更", edit_user_registration_path %>
+  </h2>
+<% end %>
+
+<%= link_to "ユーザの一覧へ", users_path %>
