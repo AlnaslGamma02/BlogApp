@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], :per_page => 10)
   end
 
   def show
@@ -20,7 +20,12 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    # @article = current_user.articles.build(article_params)
+
+    @user = current_user
+    @article = @user.articles.new(article_params)
+
+    # @article = current_user.articles.new(article_params)
 
     if @article.save
       redirect_to @article
@@ -49,6 +54,6 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit(:title, :text)
+      params.require(:article).permit(:title, :text, :picture)
     end
 end

@@ -1,14 +1,82 @@
 <% provide(:title, @user.name) %>
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
 
-<%# カレントユーザーと表示中のユーザーのIDが一致した時のみ表示 %>
-<% if @user.id == current_user.id %>
-  <h2>
-    <%= link_to "プロフィール変更", edit_user_registration_path %>
-  </h2>
-<% end %>
+<div class="container">
+  <div class="row border border-danger my-2">
+    <h1>
+      <%= gravatar_for @user %>
+      <%= @user.name %>
+    </h1>
+  </div>
+</div>
 
-<%= link_to "ユーザの一覧へ", users_path %>
+<div class="container">
+  <div class="row border border-danger my-2">
+    <%# カレントユーザーと表示中のユーザーのIDが一致した時のみ表示 %>
+    <% if @user.id == current_user.id %>
+      <h2>
+        <%= link_to "プロフィール変更", edit_user_registration_path %>
+      </h2>
+    <% end %>
+
+    <h2>
+      <%= link_to "ユーザの一覧へ", users_path %>
+    </h2>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row border border-danger my-2">
+    <h1>記事の一覧：<%= @articles.count %>件</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 border border-primary">
+      <section>
+        <nav class="border border-primary mt-2 pt-2">
+          <%= will_paginate(@articles,
+              :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
+              class: 'pagination justify-content-center')
+          %>
+        </nav>
+      </section>
+      <% @articles.each do |article| %>
+        <div class="card bg-light my-2">
+          <div class="card-header">
+            <div class="text-left">
+              著者：<%= @user.name%>
+            </div>
+            <div class="text-right">
+              作成日：<%= article.created_at.strftime('%Y年%m月%d日 %H:%M') %>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">
+              <%= article.title %>
+            </h4>
+            <%# 記事の本文を文頭から100文字切り出して表示する。 %>
+            <%= simple_format(truncate(article.text, length: 100,
+                                        omission: "..."), calss: "card-text") %>
+            <%= link_to '詳細を見る', article_path(article), class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+      <section>
+        <nav class="border border-primary mt-2 pt-2">
+          <%= will_paginate(@articles,
+              :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
+              class: 'pagination justify-content-center')
+          %>
+        </nav>
+      </section>
+    </div>
+    <%# サイドバー ここから %>
+    <div class="col-sm-4 border border-success">
+      <div class="d-flex flex-column">
+        <%= render 'layouts/side_var' %>
+      </div>
+    </div>
+    <%# サイドバー ここまで %>
+  </div>
+</div>

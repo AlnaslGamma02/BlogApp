@@ -1,9 +1,33 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  text: MyText
+Junod_of_Belhaven:
+  title: "we are witcher."
+  text: "Damn, Eskel... you got an hourglass figure"
+  created_at: <%= 20.minutes.ago %>
+  # user: john
 
-two:
-  title: MyString
-  text: MyText
+Jerome_Moreau:
+  title: "we are witcher."
+  text: "I'll stick me boot so far up yer arse your tongue'll taste like wench twat"
+  created_at: <%= 5.years.ago %>
+  # user: john
+
+Vesemir:
+  title: "we are witcher."
+  text: "No Lollygagin'!"
+  created_at: <%= 3.hours.ago %>
+  # user: john
+
+Geralt_of_Rivia:
+  title: "we are witcher."
+  text: "Oh year... the Elder Blood can be fiery"
+  created_at: <%= Time.zone.now %>
+  # user: john
+
+<% 30.times do |n| %>
+article_<%= n %>:
+  title: "we are witcher."
+  text: <%= Faker::Games::Witcher.quote %>
+  created_at: <%= 42.days.ago %>
+  # user: john
+<% end %>

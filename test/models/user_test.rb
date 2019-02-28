@@ -22,4 +22,13 @@ class UserTest < ActiveSupport::TestCase
     @user.email = "     "
     assert_not @user.valid?
   end
+
+  # ユーザが削除されたと同時に記事が削除されるか
+  # test "associated articles should be destroyed" do
+  #   @user.save
+  #   @user.articles.create!(title: "test text",text: "test text")
+  #   assert_difference 'Article.count', -1 do
+  #     @user.destroy
+  #   end
+  # end
 end

@@ -36,6 +36,13 @@ gem 'bootstrap-will_paginate', '1.0.0'
 # Faker
 gem 'faker'
 
+# 画像投稿関係
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
+
+# 環境変数アクセス用
+gem 'dotenv-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -84,6 +91,11 @@ group :test do
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
+end
+
+group :production do
+  # gem 'fog', '1.42'
+  gem 'fog-aws'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

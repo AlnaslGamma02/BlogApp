@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# ユーザの生成
 1.times do |n|
   confirmed_at = Time.now - 100
   User.create!(
@@ -29,4 +30,12 @@ end
     password: password,
     confirmed_at: confirmed_at
   )
+end
+
+# 記事の生成
+users = User.order(:created_at).take(6)
+20.times do
+  title = "This article is test." 
+  text  = Faker::Quote.yoda
+  users.each { |user| user.articles.create!(title: title, text: text) }
 end
