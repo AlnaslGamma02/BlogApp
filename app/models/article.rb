@@ -2,8 +2,6 @@ class Article < ApplicationRecord
   # 1つの記事は複数のコメントを持てる
   # 記事が削除されたらコメントも削除される
   has_many  :comments, dependent: :destroy
-
-  # comment テーブルを経由して1つの記事がユーザーを複数持つ
   has_many  :users, through: :comments
 
   # デフォルトのスコープ

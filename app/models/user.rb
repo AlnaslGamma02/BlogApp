@@ -12,5 +12,5 @@ class User < ApplicationRecord
   has_many :articles, through: :comments, dependent: :destroy
 
   # バリデーション
-  validates :name, presence: true
+  validates :username, presence: true
 end

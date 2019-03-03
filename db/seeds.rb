@@ -11,7 +11,7 @@
   confirmed_at = Time.now - 100
   User.create!(
     # Faker::Movies::LordOfTheRings.character で生成
-    name:     "Tom Bombadil",
+    username:     "Tom Bombadil",
     email:    "tBombadil@example.org",
     password: "Quickbeam",
     confirmed_at: confirmed_at
@@ -19,13 +19,13 @@
 end
 
 29.times do |n|
-  name  = Faker::Creature::Cat.unique.breed
+  username  = Faker::Creature::Cat.unique.breed
   email = "example-#{n+1}@example.org"
   # パスワードは Faker::Movies::StarWars.planet で生成
   password = "Takodana"
   confirmed_at = Time.now - 100
   User.create!(
-    name:  name,
+    username:  username,
     email: email,
     password: password,
     confirmed_at: confirmed_at

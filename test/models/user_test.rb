@@ -13,7 +13,7 @@ class UserTest < ActiveSupport::TestCase
 
   # name のバリデーション(存在性)が効いているか
   test "name should be present" do
-    @user.name = "     "
+    @user.username = "     "
     assert_not @user.valid?
   end
 
