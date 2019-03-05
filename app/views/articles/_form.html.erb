@@ -1,6 +1,6 @@
 <%# フォームを生成するパーシャル %>
 <%= form_with model: @article, local: true do |form| %>
-  <%# エラーメッセージの表示 %>
+  <%# エラーメッセージの表示　ここから %>
   <div class="container">
     <% if @article.errors.any? %>
       <div class="alert alert-danger alert-dismissible fade show"
@@ -22,6 +22,7 @@
       </div>
     <% end %>
   </div>
+  <%# エラーメッセージの表示　ここまで %>
   <%# 表示する項目 ここから %>
   <div class="container">
     <p>

@@ -1,12 +1,19 @@
 class CommentsController < ApplicationController
+  # ログインするようユーザーに要求する。
+  before_action :authenticate_user!
 
   def create
     # Articleモデルのfindメソッドを最初に呼び出し、リクエストで言及されている
     # 記事のオブジェクトを取得して@articleに保存しています。
     @article = Article.find(params[:article_id])
 
-    # createメソッドを実行することで、コメントの作成と保存を同時に行っています。
-    @comment = @article.comments.create(comment_params)
+    @comment = @article.comments.new
+    # attributes でモデルの全てのカラムと属性を取得し、コメント入力欄の
+    # 内容を入れる。
+    @comment.attributes = comment_params
+    @comment.user_id = current_user.id
+    @comment.save!
+
     redirect_to article_path(@article)
   end
 
@@ -23,6 +30,6 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comment).permit(:commenter, :body)
+      params.require(:comment).permit(:body)
     end
 end

@@ -4,10 +4,11 @@
 
 <%= form_with(model: [ @article, @article.comments.build ],
               local: true) do |form| %>
-  <p>
-    <%= form.label :commenter, 'コメンター：' %><br>
-    <%= form.text_field :commenter %>
-  </p>
+  <%# <p> %>
+    <%# <%= form.label :commenter, 'コメンター：' %>
+    <%# <%= form.text_field :commenter %>
+  <%# </p> %>
+
   <p>
     <%= form.label :body, 'コメント本文：' %><br>
     <%= form.text_area :body %>

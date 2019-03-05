@@ -30,7 +30,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.name %>
+              <%= current_user.username %>
               </a>
               <div class="dropdown-menu mt-2" aria-labelledby="navbarDropdownMenu">
                 <%= link_to "プロフィール", user_path(id: current_user.id),

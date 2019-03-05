@@ -20,12 +20,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    # @article = current_user.articles.build(article_params)
-
-    @user = current_user
-    @article = @user.articles.new(article_params)
-
-    # @article = current_user.articles.new(article_params)
+    @user    = User.find(current_user.id)
+    @article = @user.articles.create(article_params)
 
     if @article.save
       redirect_to @article
