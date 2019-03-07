@@ -8,15 +8,17 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 border border-primary">
-      <section>
-        <nav class="border border-primary mt-2 pt-2">
-          <%= will_paginate(@users,
-              :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
-              class: 'pagination justify-content-center')
-          %>
-        </nav>
-      </section>
+    <section class="col">
+      <nav class="border border-primary mt-2 pt-2">
+        <%= will_paginate(@users,
+            :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
+            class: 'pagination justify-content-center')
+        %>
+      </nav>
+    </section>
+  </div>
+  <div class="row">
+    <div class="col-8">
       <% @users.each do |user| %>
         <div class="media border border-primary my-2">
           <div class="mr-3">
@@ -29,21 +31,16 @@
           </div>
         </div>
       <% end %>
-      <section>
-        <nav class="border border-primary pt-2">
-          <%= will_paginate(@users,
-              :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
-              class: 'pagination justify-content-center')
-          %>
-        </nav>
-      </section>
     </div>
-    <%# サイドバー ここから %>
-    <div class="col-sm-4 border border-success">
-      <div class="d-flex flex-column">
-        <%= render 'layouts/side_var' %>
-      </div>
-    </div>
-    <%# サイドバー ここまで %>
+  </div>
+  <div class="row">
+    <section class="col">
+      <nav class="border border-primary pt-2">
+        <%= will_paginate(@users,
+            :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
+            class: 'pagination justify-content-center')
+        %>
+      </nav>
+    </section>
   </div>
 </div>

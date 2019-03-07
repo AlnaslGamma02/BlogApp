@@ -8,16 +8,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 border border-primary">
-      <%= render 'form' %>
-      <%= link_to '記事の一覧へ戻る', articles_path %>
-    </div>
-    <%# サイドバー ここから %>
-    <div class="col-sm-4 border border-success">
-      <div class="d-flex flex-column">
-        <%= render 'layouts/side_var' %>
-      </div>
-    </div>
-    <%# サイドバー ここまで %>
+    <%= render 'form' %>
+    <%= link_to '記事の一覧へ戻る', articles_path %>
   </div>
 </div>

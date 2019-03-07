@@ -4,16 +4,16 @@ class Article < ApplicationRecord
   has_many  :comments, dependent: :destroy
   has_many  :users, through: :comments
 
+  # 記事のタイトル入力は必須。長さは5以上であること。
+  validates :title, presence: true, length: { minimum: 5 }
+  # 画像サイズのバリデーション
+  validate  :picture_size
+  
   # デフォルトのスコープ
   default_scope -> { order(created_at: :desc) }
 
   # 画像アップローダ
   mount_uploader :picture, PictureUploader
-
-  # 記事のタイトル入力は必須。長さは5以上であること。
-  validates :title, presence: true, length: { minimum: 5 }
-  # 画像サイズのバリデーション
-  validate  :picture_size
 
   private
 
