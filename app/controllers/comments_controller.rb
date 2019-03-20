@@ -12,8 +12,10 @@ class CommentsController < ApplicationController
     # 内容を入れる。
     @comment.attributes = comment_params
     @comment.user_id = current_user.id
-    @comment.save!
 
+    unless @comment.save
+      flash[:alert] = '空白コメントは登録できません。'
+    end
     redirect_to article_path(@article)
   end
 
@@ -28,7 +30,7 @@ class CommentsController < ApplicationController
   end
 
   private
-
+    # ストロングパラメータ
     def comment_params
       params.require(:comment).permit(:body)
     end

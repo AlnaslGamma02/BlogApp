@@ -10,8 +10,7 @@
 1.times do |n|
   confirmed_at = Time.now - 100
   User.create!(
-    # Faker::Movies::LordOfTheRings.character で生成
-    username:     "Tom Bombadil",
+    username: "Tom Bombadil",
     email:    "tBombadil@example.org",
     password: "Quickbeam",
     confirmed_at: confirmed_at
@@ -21,7 +20,6 @@ end
 29.times do |n|
   username  = Faker::Creature::Cat.unique.breed
   email = "example-#{n+1}@example.org"
-  # パスワードは Faker::Movies::StarWars.planet で生成
   password = "Takodana"
   confirmed_at = Time.now - 100
   User.create!(
@@ -33,9 +31,32 @@ end
 end
 
 # 記事の生成
-users = User.order(:created_at).take(6)
+users   = User.order(:created_at).take(6)
+numbers = [0,1,2,3,4,5,6,7,8,9]
+title   = "This article is test."
+
 20.times do
-  title = "This article is test." 
-  text  = Faker::Quote.yoda
-  users.each { |user| user.articles.create!(title: title, text: text) }
+  users.each do |user|
+    text  = Faker::Quote.yoda
+    num   = numbers.sample
+    user.articles.create!(
+      title: title,
+      text: text,
+      picture: open("#{Rails.root}/app/assets/images/image0#{num}.jpg")
+    )
+  end
+end
+
+# コメントの生成
+users   = User.order(:created_at).take(3)
+
+120.times do |n|
+  id = n + 1
+  users.each do |user|
+    body = Faker::Movies::StarWars.quote
+    user.comments.create!(
+      body: body,
+      article_id: id
+    )
+  end
 end

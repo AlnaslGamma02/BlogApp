@@ -1,18 +1,22 @@
-<footer class="py-4 bg-dark text-light">
-  <div class="container text-center">
-    <ul class="nav justify-content-center mb-3">
-      <li class="nav-item">
-        <%= link_to "ホーム", root_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "このブログについて", about_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "記事の一覧", articles_url, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "ヘルプ", help_path, class: "nav-link" %>
-      </li>
-    </ul>
-  </div>
+<footer>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <div class="collapse navbar-collapse d-flex justify-content-lg-center">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to "ホーム", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "このブログについて", about_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "記事の一覧", articles_url, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ヘルプ", help_path, class: "nav-link" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </footer>

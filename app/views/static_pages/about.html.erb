@@ -1,5 +1,74 @@
 <% provide(:title, "このブログについて") %>
-<h1>About</h1>
-<p>
-  このWebアプリはブログアプリです。
-</p>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col col-lg-8">
+      <h1>作者について</h1>
+      <div class="card d-flex flex-column align-items-center" id="bg-color">
+        <%= image_tag 'my_avatar_image.jpg', size: '150x150', class: 'rounded-circle' %>
+        <div class="card-body">
+          <p class="card-text text-justify">
+            新潟県在住の30代・男。<br><br>
+            新潟県内のIT系専門学校を卒業後、東京のIT系企業へ就職。
+            派遣先のデータセンターでオペレーターとして数年間勤めたあと、
+            諸事情により退職して新潟へUターンしてきました。
+            （プログラマーとしての業務経験はありません。）
+            Uターン後は就職活動・アルバイト等をしていましたが、プログラマーに
+            なりたいとの考えから2018年10月より本格的なプログラミング学習
+            （主にRuby/Rails）を開始しました。
+            現在求職活動中です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col col-lg-8">
+      <h1>当ブログアプリについて</h1>
+      <div class="card d-flex flex-column align-items-center" id="bg-color">
+        <div class="card-body">
+          <div class="card-text text-justify">
+            <p>
+              当ブログアプリはポートフォリオとして作成している物になります。<br>
+              足りない機能（記事検索機能など）については順次追加していく予定ですが、
+              最低限の機能は搭載出来たものと考え、一旦公開しています。<br>
+            </p>
+            <p>
+              下記GitHubにてソースコードを公開しております。<br>
+            </p>
+            <p class="lead">
+              <a href="https://github.com/AlnaslGamma02/BlogApp" target="_blank">
+                <i class="fab fa-github-square">GitHub</i>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col col-lg-8">
+      <h1>コンタクト</h1>
+      <div class="card d-flex flex-column align-items-center mb-2" id="bg-color">
+        <div class="card-body">
+          <div class="card-text">
+            <p>メールでのご連絡：
+              <i class="fas fa-envelope"></i>
+              <strong>
+                <%= mail_to 'Alnasl.Gamma02@gmail.com', 'メール' %>
+              </strong>
+            </p>
+            <p>Twitterでのご連絡：
+              <i class="fab fa-twitter-square"></i>
+              <strong>
+                <a href="http://twitter.com/@AlnaslGamma02" target="_blank">
+                  Twitter
+                </a>
+              </strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

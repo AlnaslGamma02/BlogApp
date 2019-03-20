@@ -1,50 +1,62 @@
 <%# フォームを生成するパーシャル %>
-<%= form_with model: @article, local: true do |form| %>
-  <%# エラーメッセージの表示　ここから %>
-  <div class="container">
-    <% if @article.errors.any? %>
-      <div class="alert alert-danger alert-dismissible fade show"
-            id="error_explanation" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h2>
-          <%# pluralize は上手く動かなかった。(i18nの影響?) %>
-          <%# <%= pluralize(@article.errors.count, "error") %>
-          この記事は保存されませんでした。エラー件数は
-          <%= @article.errors.count %> 件です。：
-        </h2>
-        <ul>
-          <% @article.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
+<div class="container">
+  <%= form_with model: @article, local: true, class: 'form-group' do |form| %>
+    <%# エラーメッセージの表示　ここから %>
+    <div class="row">
+      <div class="col">
+        <% if @article.errors.any? %>
+          <div class="alert alert-danger alert-dismissible fade show"
+                id="error_explanation" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h2>
+              <%# pluralize は上手く動かなかった。(i18nの影響?) %>
+              <%# <%= pluralize(@article.errors.count, "error") %>
+              この記事は保存されませんでした。エラー件数は
+              <%= @article.errors.count %> 件です。：
+            </h2>
+            <ul>
+              <% @article.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-  <%# エラーメッセージの表示　ここまで %>
-  <%# 表示する項目 ここから %>
-  <div class="container">
-    <p>
-      <%= form.label :title, 'タイトル：' %><br>
-      <%= form.text_field :title %>
-    </p>
+    </div>
+    <%# エラーメッセージの表示　ここまで %>
+    <%# 表示する項目 ここから %>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+        <p>
+          <%= form.label :title, 'タイトル：' %><br>
+          <%= form.text_field :title, :class => 'form-control mb-2',
+                :placeholder => 'タイトルを入力' %>
+        </p>
 
-    <p>
-      <%= form.label :text, '本文：' %><br>
-      <%= form.text_area :text %>
-    </p>
+        <span class="picture">
+          <%= form.label '先頭に表示する画像：' %><br>
+          <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+        </span>
 
-    <p>
-      <%= form.submit %>
-    </p>
+        <p class="mt-2">
+          <%= form.label :text, '本文：' %><br>
+          <%= form.text_area :text, :class => 'form-control mb-2',
+                :placeholder => '本文を入力', :rows => '20' %>
+        </p>
 
-    <span class="picture">
-      <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-    </span>
-  </div>
-  <%# 表示する項目 ここまで %>
-<% end %>
+        <p>
+          <%= form.submit %><br>
+        </p>
+      </div>
+      <div class="col-12 col-lg-10">
+        <%= link_to '記事の一覧へ戻る', articles_path %>
+      </div>
+    </div>
+    <%# 表示する項目 ここまで %>
+  <% end %>
+</div>
 
 <script type="text/javascript">
   $('#article_picture').bind('change', function() {

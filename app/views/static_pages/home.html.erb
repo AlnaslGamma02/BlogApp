@@ -1,23 +1,17 @@
-<% if user_signed_in? %>
-  <div class="jumbotron jumbotron-fluid border border-danger">
-    <h1 class="display-3">Blog App</h1>
-    <p class="lead">
-      ブログアプリへようこそ！！
-    </p>
-  </div>
-<% else %>
-  <div class="jumbotron jumbotron-fluid border border-danger">
-    <h1 class="display-3">Blog App</h1>
-    <p class="lead">
-      ここは、ブログアプリのホームページです。
-    </p>
-    <%= link_to "サインアップ", new_user_registration_path,
-    class: "btn btn-lg btn-primary" %>
-  </div>
-<% end %>
+<div class="jumbotron jumbotron-fluid" id="home-jumbo">
+</div>
 
-<div class="container">
-  <div class="row">
-    コンテンツ
-  </div>
+<div class="bg-light">
+  <section class="mb-2">
+    <div class="container">
+      <div class="row">
+        <h2>新着記事：</h2>
+      </div>
+      <%= render 'articles/list_of_articles', articles: @new_articles %>
+      <div class="row">
+        <h2>過去記事：</h2>
+      </div>
+      <%= render 'articles/list_of_articles', articles: @randum_articles %>
+    </div>
+  </section>
 </div>

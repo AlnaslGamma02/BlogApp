@@ -1,54 +1,12 @@
 <% provide(:title, "記事の一覧") %>
 
 <div class="container">
-  <div class="row justify-content-between border border-danger my-2">
+  <div class="row my-2">
     <h1>記事の一覧</h1>
+  </div>
+  <div class="row justify-content-end">
     <%= link_to '記事を投稿する', new_article_path, class: "btn btn-lg btn-primary" %>
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <section class="col">
-      <nav class="border border-primary mt-2 pt-2">
-        <%= will_paginate(@articles,
-            :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
-            class: 'pagination justify-content-center')
-        %>
-      </nav>
-    </section>
-  </div>
-  <div class="row">
-    <% @articles.each do |article| %>
-      <div class="card bg-light col-8 my-2">
-        <div class="card-header">
-          <div class="text-left">
-            <%# 著者：<%= article.username %>
-          </div>
-          <div class="text-right">
-            作成日：<%= article.created_at.strftime('%Y年%m月%d日 %H:%M') %>
-          </div>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">
-            <%= article.title %>
-          </h4>
-          <%# 記事の本文を文頭から100文字切り出して表示する。 %>
-          <%= simple_format(truncate(article.text, length: 100,
-                                      omission: "..."), calss: "card-text") %>
-          <%= link_to '詳細を見る', article_path(article), class: "btn btn-primary" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="row">
-    <section class="col">
-      <nav class="border border-primary mt-2 pt-2">
-        <%= will_paginate(@articles,
-            :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
-            class: 'pagination justify-content-center')
-        %>
-      </nav>
-    </section>
-  </div>
-</div>
+<%= render 'articles/list_of_articles', articles: @articles %>

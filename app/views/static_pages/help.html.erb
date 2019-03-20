@@ -1,5 +1,164 @@
 <% provide(:title, "ヘルプ") %>
-<h1>Help</h1>
-<p>
-  ここはヘルプページです。
-</p>
+
+<div class="container">
+  <div class="row">
+    <h1>ヘルプページ</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h3>アプリ内の機能の使用可否について</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="table-active">機能の使用可否</th>
+            <th class="table-active">ユーザー登録なし</th>
+            <th class="table-primary">ユーザー登録あり</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="table-active">ブログ記事の閲覧</th>
+            <td class="table-success"><i class="far fa-circle"></i></td>
+            <td class="table-success"><i class="far fa-circle"></i></td>
+          </tr>
+          <tr>
+            <th class="table-active">ブログ記事の作成</th>
+            <td class="table-danger"><i class="fas fa-times"></i></td>
+            <td class="table-success"><i class="far fa-circle"></td>
+          </tr>
+          <tr>
+            <th class="table-active">ブログ記事の編集</th>
+            <td class="table-danger"><i class="fas fa-times"></i></td>
+            <td class="table-success"><i class="far fa-circle"></td>
+          </tr>
+          <tr>
+            <th class="table-active">ブログ記事の削除</th>
+            <td class="table-danger"><i class="fas fa-times"></i></td>
+            <td class="table-success"><i class="far fa-circle"></td>
+          </tr>
+          <tr>
+            <th class="table-active">コメントの登録</th>
+            <td class="table-danger"><i class="fas fa-times"></i></td>
+            <td class="table-success"><i class="far fa-circle"></td>
+          </tr>
+          <tr>
+            <th class="table-active">コメントの削除</th>
+            <td class="table-danger"><i class="fas fa-times"></i></td>
+            <td class="table-success"><i class="far fa-circle"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <section>
+        <h3>アプリの使用方法について</h3>
+        <dl>
+          <dt>ブログ記事について</dt>
+            <strong>
+            <dd class="pl-3">ブログ記事の閲覧</dd>
+            </strong>
+            <p class="pl-3 text-justify">
+            上部メニューにある「記事の一覧」を選択すると全記事の一覧が投稿日の
+            降順に表示されます。
+            また、ユーザーのプロフィール画面を開くとユーザーが投稿した記事が
+            投稿日の降順に表示されます。
+            その他、トップページにも新着記事や過去記事（投稿された記事がランダム
+            で表示される）が表示されます。
+            記事の全文を参照したい場合は、「続きを見る」を選択するか、記事の
+            タイトル・サムネイル画像を選択すると表示されます。
+            </p>
+            <strong>
+            <dd class="pl-3">ブログ記事の作成</dd>
+            </strong>
+            <p class="pl-3 text-justify">
+            上部メニューにある「記事の一覧」を選択すると全記事の一覧が表示されます。
+            表示されたページ内上部にある「記事を投稿する」ボタンを押すと新規作成
+            ページが表示されますので、タイトル・本文・記事先頭に表示する画像を
+            入力・選択してください。
+            入力等が終わりましたら、「登録する」ボタンを押し記事を投稿します。
+            （画像を選択しなくても記事の投稿は可能ですが、デフォルト画像が表示
+            されます。）
+            </p>
+            <strong>
+            <dd class="pl-3">ブログ記事の編集</dd>
+            </strong>
+            <p class="pl-3 text-justify">
+            記事の詳細ページを表示し、記事右上部にある「記事の編集」（スマホ・
+            タブレットではペンのアイコン）を選択すると編集ページが表示されます。
+            「更新する」ボタンを押すことで編集した内容を記事に反映する事が出来ます。
+            </p>
+            <strong>
+            <dd class="pl-3">ブログ記事の削除</dd>
+            </strong>
+            <p class="pl-3 text-justify">
+            記事の詳細ページを表示し、記事右上部にある「記事の削除」（スマホ・
+            タブレットではゴミ箱のアイコン）を選択すると本当に削除するか確認の
+            メッセージが表示されます。OKを選択すると記事が削除されます。
+            </p>
+          <dt>コメント機能について</dt>
+            <strong>
+            <dd class="pl-3">コメントの登録</dd>
+            </strong>
+            <p class="pl-3 text-justify">
+            記事の詳細ページを表示し、ページ下部にあるコメント投稿フォームに
+            コメント本文を入力して「登録する」ボタンを押すとコメントが投稿
+            されます。
+            </p>
+            <strong>
+            <dd class="pl-3">コメントの削除</dd>
+            </strong>
+            <p class="pl-3 text-justify">
+            記事の詳細ページを表示し、ページ下部にあるコメント表示部の
+            「コメントの削除」を選択すると本当に削除するか確認のメッセージが
+            表示されます。OKを選択するとコメントが削除されます。
+            </p>
+          <dt>ユーザーについて</dt>
+            <strong>
+            <dd class="pl-3">ユーザー登録</dd>
+            </strong>
+            <p class="pl-3 text-justify">
+            ページ上部のメニューにある「サインアップ」を選択するとアカウント登録
+            ページに移動します。
+            ユーザー名・メールアドレス・パスワードを入力後、「アカウント登録」
+            ボタンを押すと登録したメールアドレスにアカウント確認のメールが届きます。
+            メール本文内にあるURLを選択する事でアカウントが有効になりますので、
+            登録したメールアドレス・パスワードを入力してログイン出来るかご確認ください。
+            </p>
+            <strong>
+            <dd class="pl-3">ログイン・ログアウト</dd>
+            </strong>
+            <p class="pl-3 text-justify">
+            ページ上部のメニューにある「ログイン」を選択するとログインページに
+            移動します。
+            登録したメールアドレス・パスワードを入力後、「ログイン」ボタンを
+            押すと入力情報が正しい場合ログインした状態でトップページへ移動します。
+            ページ上部のメニューにある＜ユーザー名＞-＜ログアウト＞を選択すると
+            ログアウトします。
+            </p>
+            <strong>
+            <dd class="pl-3">ユーザー情報の編集</dd>
+            </strong>
+            <p class="pl-3 text-justify">
+            登録したユーザーでログイン後、ページ上部のメニューにある＜ユーザー名＞
+            -＜プロフィール変更＞を選択するとユーザー編集ページが表示されます。
+            変更したい内容を編集後、「更新」ボタンを押すと変更内容がユーザー情報へ
+            反映されます。
+            </p>
+            <strong>
+            <dd class="pl-3">ユーザー削除</dd>
+            </strong>
+            <p class="pl-3 text-justify">
+            登録したユーザーでログイン後、ページ上部のメニューにある＜ユーザー名＞
+            -＜プロフィール変更＞を選択するとユーザー編集ページが表示されます。
+            ページ下部にある「アカウント削除」ボタンを押すと本当に削除するか
+            確認のメッセージが表示されます。OKを選択するとアカウントが削除されます。
+            </p>
+        </dl>
+      </section>
+    </div>
+  </div>
+</div>

@@ -4,11 +4,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
 
   def index
-    @users = User.paginate(page: params[:page], :per_page => 10)
+    @users = User.paginate(page: params[:page], :per_page => 10).order('username ASC')
   end
 
   def show
     @user = User.find(params[:id])
-    @articles = @user.articles.distinct.paginate(page: params[:page], :per_page => 10)
+    article_ids = @user.comments.where(body: nil).distinct.pluck(:article_id)
+    @articles = Article.where("id IN (?)", article_ids).paginate(page: params[:page], :per_page => 10)
   end
 end

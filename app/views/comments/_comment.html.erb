@@ -1,17 +1,28 @@
-<%# <p> %>
-  <%# <strong>コメンター：</strong> %>
-  <%# <%= comment.commenter %>
-<%# </p> %>
-
-<p>
-  <strong>コメント本文：</strong>
-  <%= comment.body %>
-</p>
-
-<%# 下記リンクをクリックすると DELETE /articles/:article_id/comments/:id  %>
-<%# というリクエストが CommentsController に送信されます。 %>
-<p>
-  <%= link_to 'コメント削除', [ comment.article, comment ],
+<% comments.each do |comment| %>
+  <div class="card mb-3">
+    <div class="card-header d-flex justify-content-between">
+      <div>
+        <% user = User.find(comment.user_id) %>
+        <%= link_to gravatar_for(user, size: 30), user_path(id: user.id) %>
+        <%= link_to user.username, user_path(id: user.id) %>
+      </div>
+      <div>
+        <%= comment.created_at.strftime('%Y年%m月%d日 %H:%M') %>
+      </div>
+    </div>
+    <div class="card-body">
+      <%# コメント本文 %>
+      <%= comment.body %><br>
+      <%# 削除リンク %>
+      <% if user_signed_in? %>
+        <% if user.id == current_user.id %>
+          <%# 下記リンクをクリックすると DELETE /articles/:article_id/comments/:id  %>
+          <%# というリクエストが CommentsController に送信されます。 %>
+          <%= link_to 'コメントの削除', [ comment.article, comment ],
               method: :delete,
               data: { confirm: '本当に削除しますか？' } %>
-</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

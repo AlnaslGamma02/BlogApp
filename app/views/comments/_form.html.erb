@@ -3,17 +3,14 @@
 <%# 「ネストしたルーティング」を生成する。 %>
 
 <%= form_with(model: [ @article, @article.comments.build ],
-              local: true) do |form| %>
-  <%# <p> %>
-    <%# <%= form.label :commenter, 'コメンター：' %>
-    <%# <%= form.text_field :commenter %>
-  <%# </p> %>
+              local: true, class: 'form-group') do |form| %>
 
-  <p>
-    <%= form.label :body, 'コメント本文：' %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+  <%= form.label :body, 'コメント本文：' %><br>
+  <div class="row">
+    <div class="col">
+      <%= form.text_area :body, :class => 'form-control mb-2',
+          :placeholder => 'コメントを入力', :rows => '5' %>
+    </div>
+  </div>
+  <%= form.submit %>
 <% end %>

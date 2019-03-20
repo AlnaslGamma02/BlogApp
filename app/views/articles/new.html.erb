@@ -1,14 +1,9 @@
 <% provide(:title, "新規作成") %>
 
 <div class="container">
-  <div class="row border border-danger my-2">
+  <div class="row my-2">
     <h1>新規作成</h1>
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <%= render 'form' %>
-    <%= link_to '記事の一覧へ戻る', articles_path %>
-  </div>
-</div>
+<%= render 'form' %>

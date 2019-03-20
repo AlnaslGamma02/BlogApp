@@ -1,0 +1,133 @@
+<div class="container">
+  <%# ページネーション　ここから %>
+  <% unless @articles.nil? %>
+    <div class="row">
+      <%# PC用 %>
+      <section class="col d-none d-md-inline">
+        <nav class="mt-2 pt-2">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <%= will_paginate(@articles,
+                  :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer)
+              %>
+            </li>
+          </ul>
+        </nav>
+      </section>
+      <%# スマホ・タブ用 %>
+      <section class="col d-md-none d-inline">
+        <nav class="mt-2 pt-2">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <%= will_paginate(@articles,
+                  :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
+                  :previous_label => "<<",
+                  :next_label => ">>",
+                  :inner_window => 1)
+              %>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+  <% end %>
+  <%# ページネーション　ここまで %>
+
+  <div class="row">
+    <div class="col">
+      <% articles.each do |article| %>
+        <%# スマホ・タブ用画面表示 %>
+        <div class="d-lg-none col d-flex flex-row mb-1">
+          <div class="media">
+            <%# 記事の写真　ここから %>
+            <% if article.picture? %>
+              <%= link_to image_tag(article.picture.url, size: 70), article_path(article) %>
+            <% else %>
+              <%= link_to image_tag('default.jpeg', size: 70), article_path(article) %>
+            <% end %>
+            <%# 記事の写真　ここまで %>
+          </div>
+          <div class="media-body">
+            <%# 記事のタイトル %>
+            <h5 class="card-title mb-0">
+              <%= link_to article.title, article_path(article) %>
+            </h5>
+            <%# 投稿日 %>
+            <%= article.created_at.strftime('%Y年%m月%d日') %><br>
+            <%# 記事の投稿者名 %>
+            <% user_id   = Comment.find_by(article_id: article.id).user_id %>
+            <% user_name = User.find(user_id).username %>
+            by <%= link_to user_name, user_path(id: user_id) %><br>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <% articles.each do |article| %>
+      <%# PC用画面表示 %>
+      <div class="d-none d-lg-block col-lg-4 mb-2">
+        <div class="card h-100">
+          <%# 記事の写真　ここから %>
+            <% unless article.picture.url.nil? %>
+              <%= link_to image_tag(article.picture.url, class: "card-img-top"), article_path(article) %>
+            <% else %>
+              <%= link_to image_tag('default.jpeg', class: "card-img-top"), article_path(article) %> 
+            <% end %>
+          <%# 記事の写真　ここまで %>
+          <div class="card-body">
+            <%# 記事のタイトル %>
+            <h4 class="card-title">
+              <%= link_to article.title, article_path(article) %>
+            </h4>
+            <%# 投稿日 %>
+            <%= article.created_at.strftime('%Y年%m月%d日') %>
+            <%# 記事の投稿者名 %>
+            <% user_id   = Comment.find_by(article_id: article.id).user_id %>
+            <% user_name = User.find(user_id).username %>
+            by <%= link_to user_name, user_path(id: user_id) %><br>
+            <%# 記事の本文を文頭から100文字切り出して表示する。 %>
+            <%= simple_format(truncate(article.text, length: 100,
+                                        omission: "..."), class: "card-text") %>
+            <%= link_to '続きを見る', article_path(article) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# ページネーション　ここから %>
+  <% unless @articles.nil? %>
+    <div class="row">
+      <%# PC用 %>
+      <section class="col d-none d-md-inline">
+        <nav class="mt-2 pt-2">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <%= will_paginate(@articles,
+                  :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer)
+              %>
+            </li>
+          </ul>
+        </nav>
+      </section>
+      <%# スマホ・タブ用 %>
+      <section class="col d-md-none d-inline">
+        <nav class="mt-2 pt-2">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <%= will_paginate(@articles,
+                  :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
+                  :previous_label => "<<",
+                  :next_label => ">>",
+                  :inner_window => 1)
+              %>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+  <% end %>
+  <%# ページネーション　ここまで %>
+</div>
