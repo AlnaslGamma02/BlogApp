@@ -55,9 +55,9 @@
             <%# 投稿日 %>
             <%= article.created_at.strftime('%Y年%m月%d日') %><br>
             <%# 記事の投稿者名 %>
-            <% user_id   = Comment.find_by(article_id: article.id).user_id %>
-            <% user_name = User.find(user_id).username %>
-            by <%= link_to user_name, user_path(id: user_id) %><br>
+            <% user_id   = Comment.where(article_id: article.id).where(body: nil).pluck(:user_id) %>
+            <% user_name = User.where("id IN (?)", user_id).pluck(:username) %>
+            by <%= link_to user_name[0], user_path(id: user_id) %><br>
           </div>
         </div>
       <% end %>
@@ -84,9 +84,9 @@
             <%# 投稿日 %>
             <%= article.created_at.strftime('%Y年%m月%d日') %>
             <%# 記事の投稿者名 %>
-            <% user_id   = Comment.find_by(article_id: article.id).user_id %>
-            <% user_name = User.find(user_id).username %>
-            by <%= link_to user_name, user_path(id: user_id) %><br>
+            <% user_id   = Comment.where(article_id: article.id).where(body: nil).pluck(:user_id) %>
+            <% user_name = User.where("id IN (?)", user_id).pluck(:username) %>
+            by <%= link_to user_name[0], user_path(id: user_id) %><br>
             <%# 記事の本文を文頭から100文字切り出して表示する。 %>
             <%= simple_format(truncate(article.text, length: 100,
                                         omission: "..."), class: "card-text") %>
