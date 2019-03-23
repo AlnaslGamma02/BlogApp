@@ -3,10 +3,13 @@
 これは、私が作成したポートフォリオ（ブログアプリケーション）です。
 初心者が作成したアプリの為、色々と不備がある可能性があります。
 
+実際に動作するページは下記になります。
+URL： [Blog App](https://calm-garden-94571.herokuapp.com)
+
 ## ライセンス
 
 ソースコードはMITライセンスのもとで公開されています。
-詳細は [LICENSE.md](LICENSE.md) をご覧ください。
+詳細は [LICENSE.txt](LICENSE.txt) をご覧ください。
 
 ## 使い方
 
@@ -21,6 +24,12 @@ $ bundle install --without production
 
 ```
 $ rails db:migrate
+```
+
+データベースへデータを登録する場合は、下記を実行してください。
+
+```
+$ rails db:seed
 ```
 
 最後に、テストを実行してうまく動いているかどうか確認してください。
