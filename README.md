@@ -1,10 +1,35 @@
 # ブログアプリケーション
 
 これは、私が作成したポートフォリオ（ブログアプリケーション）です。
-初心者が作成したアプリの為、色々と不備がある可能性があります。
 
-実際に動作するページは下記になります。
-URL： [Blog App](https://calm-garden-94571.herokuapp.com)
+実際に動作するページは[こちら](https://calm-garden-94571.herokuapp.com)です。
+※初回アクセス時、ページを開くまでに時間が掛かる場合があります。
+
+## アプリの機能
+
+- ユーザー認証機能
+- ブログ記事の投稿/編集/削除/閲覧機能
+- 画像投稿機能
+- ページネーション機能
+- コメントの投稿/削除機能
+
+## 使用した言語・フレームワークなど(主要な物)
+
+- Ruby 2.4
+- Ruby on Rails 5.1 (Webアプリケーションフレームワーク)
+- Bootstrap 4 (CSSフレームワーク)
+- Font Awesome (Webアイコンフォント)
+- HTML
+- CSS
+- PostgreSQL (データベース)
+- Puma (HTTP サーバー)
+- AWS S3 (クラウドストレージ（投稿画像保存用）)
+- Gem (Ruby のライブラリ・拡張機能)
+  - devise (ユーザー認証)
+  - will_paginate (ページネーション)
+  - carrierwave (画像投稿)
+- Heroku (デプロイ先のPaaS)
+- CentOS 7 (Windows8.1 + Vagrant + VirtualBox 上に構築)
 
 ## ライセンス
 
